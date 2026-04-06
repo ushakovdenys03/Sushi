@@ -1,0 +1,35 @@
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+@media (max-width: 630px) {
+  .list {
+    overflow-x: auto;
+    justify-content: flex-start;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .list::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.listElement {
+  cursor: pointer;
+  list-style: none;
+  background-color: rgb(239, 224, 224);
+  color: black;
+  padding: 10px 40px;
+  border-radius: 10px;
+}
+
+.active {
+  background-color: black;
+  color: white;
+}

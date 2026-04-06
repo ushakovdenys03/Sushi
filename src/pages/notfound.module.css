@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  text-align: center;
+}
+
+.title {
+  font-size: 80px;
+  margin: 0;
+}
+
+.text {
+  font-size: 18px;
+  color: #666;
+  margin: 10px 0 20px;
+}
+
+.button {
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff4d4f, #ff7a45);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(255, 77, 79, 0.3);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 77, 79, 0.4);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(255, 77, 79, 0.3);
+}

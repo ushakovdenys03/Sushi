@@ -1,0 +1,9 @@
+.products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sort {
+  margin-bottom: 10px;
+}

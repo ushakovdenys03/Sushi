@@ -1,0 +1,152 @@
+[
+  {
+    "id": 0,
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Zq8vCDhk5tS_jbRAVHXXDVq-W8lksYc2Nw&s",
+    "title": "Philadelphia Classic",
+    "quantitySush": 16,
+    "price": 22,
+    "category": 1,
+    "rating": 5,
+    "isSalmon": true
+  },
+  {
+    "id": 1,
+    "imageUrl": "https://online-sushi.com.ua/image/catalog/interesnaya-informaciya-o-rollah-kaliforniya.jpg",
+    "title": "California Roll",
+    "quantitySush": 12,
+    "price": 20,
+    "category": 1,
+    "rating": 4,
+    "isSalmon": false
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://avatars.mds.yandex.net/i?id=79ae2a544c8958701ec4d1045c1886e2fabbeb28-10555004-images-thumbs&n=13g",
+    "title": "Dragon Roll",
+    "quantitySush": 10,
+    "price": 18,
+    "category": 2,
+    "rating": 5,
+    "isSalmon": false
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://media.istockphoto.com/id/1151189763/ru/%D1%84%D0%BE%D1%82%D0%BE/%D0%B3%D0%BE%D1%80%D1%8F%D1%87%D0%B8%D0%B9-%D1%80%D1%83%D0%BB%D0%B5%D1%82-%D1%81-%D0%BB%D0%BE%D1%81%D0%BE%D1%81%D0%B5%D0%B2%D0%BE%D0%B9-%D1%82%D0%B5%D0%BC%D0%BF%D1%83%D1%80%D0%BE%D0%B9-%D0%BD%D0%B0-%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%BC-%D1%81-%D0%BE%D1%82%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC.jpg?s=612x612&w=0&k=20&c=fLVwKU3MSeoMiQPIplTfmjHRAe_lP94kORzn9JDYzRA=",
+    "title": "Tempura Roll",
+    "quantitySush": 14,
+    "price": 22,
+    "category": 3,
+    "rating": 4,
+    "isSalmon": true
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://dinnerthendessert.com/wp-content/uploads/2023/06/Spicy-Tuna-Rolls-13-e1722979848482.jpg",
+    "title": "Spicy Tuna Roll",
+    "quantitySush": 8,
+    "price": 17,
+    "category": 2,
+    "rating": 5,
+    "isSalmon": false
+  },
+  {
+    "id": 5,
+    "imageUrl": "https://vkusnyesushi.ru/image/cache/data/firm-roll/jUmUvBbT3F0-840x560.jpg",
+    "title": "Ebi Roll",
+    "quantitySush": 10,
+    "price": 20,
+    "category": 1,
+    "rating": 4,
+    "isSalmon": false
+  },
+  {
+    "id": 6,
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbAvsigU07lnUcVj0ABUnCAYqEt8kNY2UYig&s",
+    "title": "Unagi Roll",
+    "quantitySush": 8,
+    "price": 12,
+    "category": 2,
+    "rating": 5,
+    "isSalmon": false
+  },
+  {
+    "id": 7,
+    "imageUrl": "https://media.istockphoto.com/id/1411173740/ru/%D1%84%D0%BE%D1%82%D0%BE/%D0%B2%D0%B5%D0%B3%D0%B5%D1%82%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D1%81%D0%BA%D0%B8%D0%B9-%D0%B2%D0%B5%D0%B3%D0%B0%D0%BD%D1%81%D0%BA%D0%B8%D0%B9-%D1%81%D1%83%D1%88%D0%B8-%D0%BD%D0%B0-%D0%B2%D1%8B%D0%BD%D0%BE%D1%81.jpg?s=612x612&w=0&k=20&c=GK3s4knsMwugMzV-LCPgtrJd47lgibAZZWWG907-4Oo=",
+    "title": "Vegan Roll",
+    "quantitySush": 12,
+    "price": 16,
+    "category": 4,
+    "rating": 3,
+    "isSalmon": false
+  },
+  {
+    "id": 8,
+    "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/1a/bf/a7/43/rainbow-roll.jpg",
+    "title": "Rainbow Roll",
+    "quantitySush": 16,
+    "price": 25,
+    "category": 2,
+    "rating": 5,
+    "isSalmon": true
+  },
+  {
+    "id": 9,
+    "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/25/11/9d/3b/masse-sushi-a-velge-mellom.jpg?w=500&h=-1&s=1",
+    "title": "Tiger Roll",
+    "quantitySush": 12,
+    "price": 20,
+    "category": 3,
+    "rating": 4,
+    "isSalmon": true
+  },
+  {
+    "id": 10,
+    "imageUrl": "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/mtsfibyw/0ebaa102-aa56-47f1-91b7-1003c86d974f.jpg",
+    "title": "Salmon Avocado Roll",
+    "quantitySush": 8,
+    "price": 12,
+    "category": 1,
+    "rating": 5,
+    "isSalmon": true
+  },
+  {
+    "id": 11,
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ67bZ5akwycKFFzUg4SoVwhQzcrREN9V_Jrg&s",
+    "title": "Tuna Avocado Roll",
+    "quantitySush": 8,
+    "price": 10,
+    "category": 1,
+    "rating": 4,
+    "isSalmon": false
+  },
+  {
+    "id": 12,
+    "imageUrl": "https://www.shutterstock.com/image-photo/tasty-sushi-on-white-background-600nw-2177723645.jpg",
+    "title": "Crunch Roll",
+    "quantitySush": 14,
+    "price": 22,
+    "category": 3,
+    "rating": 4,
+    "isSalmon": false
+  },
+  {
+    "id": 13,
+    "imageUrl": "https://sushiakami.ru/wp-content/uploads/%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9-%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9-%D1%80%D0%BE%D0%BB%D0%BB-%D0%91%D0%BE%D1%81%D1%82%D0%BE%D0%BD.jpg",
+    "title": "Boston Roll",
+    "quantitySush": 10,
+    "price": 15,
+    "category": 1,
+    "rating": 3,
+    "isSalmon": false
+  },
+  {
+    "id": 14,
+    "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/11/be/84/f6/grilled-cheese-salmon.jpg",
+    "title": "Cheese Salmon Roll",
+    "quantitySush": 12,
+    "price": 16,
+    "category": 2,
+    "rating": 5,
+    "isSalmon": true
+  }
+]
