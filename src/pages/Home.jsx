@@ -1,19 +1,26 @@
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { setCategoryID } from "../redux/slices/filterSlice";
 import Categories from "../components/Categories/Categories";
 import Products from "../components/Products/Products";
-import React from "react";
 import styles from "./home.module.css";
 import Sort from "../components/Sort/Sort";
 import Pagination from "../components/Pagination";
 
 export default function Home({ searchValue }) {
+  const dispatch = useDispatch();
+  const categoryID = useSelector((state) => state.filterSlice.categoryID);
+  const sortType = useSelector((state) => state.filterSlice.sort.sortProperty);
+
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [categoryID, setCategorieID] = React.useState(0);
-  const [sortType, setSortType] = React.useState({
-    name: "popularité",
-    sortProperty: "rating",
-  });
+
   const [page, setPage] = React.useState(1);
+
+  const onClickCategorie = (id) => {
+    dispatch(setCategoryID(id));
+  };
 
   React.useEffect(() => {
     setIsLoading(true);
@@ -22,7 +29,7 @@ export default function Home({ searchValue }) {
     const search = searchValue ? `&search=${searchValue}` : "";
 
     fetch(
-      `https://69cc09f70b417a19e07bbb23.mockapi.io/items?page=${page}&limit=5&${category}&sortBy=${sortType.sortProperty}&order=asc&${search}`,
+      `https://69cc09f70b417a19e07bbb23.mockapi.io/items?page=${page}&limit=5&${category}&sortBy=${sortType}&order=asc&${search}`,
     )
       .then((res) => res.json())
       .then((arr) => {
@@ -36,11 +43,11 @@ export default function Home({ searchValue }) {
     <>
       <Categories
         value={categoryID}
-        onClickCategorie={(id) => setCategorieID(id)}
+        onClickCategorie={(id) => onClickCategorie(id)}
       />
 
       <div className={styles.sort}>
-        <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
+        <Sort />
       </div>
 
       <div className={styles.products}>

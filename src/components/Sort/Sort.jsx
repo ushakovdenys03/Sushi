@@ -1,16 +1,22 @@
 import React from "react";
 import styles from "./sort.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import { setSort } from "../../redux/slices/filterSlice";
 
-export default function Sort({ value, onChangeSort }) {
+const list = [
+  { name: "popularité", sortProperty: "rating" },
+  { name: "prix", sortProperty: "price" },
+  { name: "alphabétique", sortProperty: "title" },
+];
+
+export default function Sort() {
+  const dispatch = useDispatch();
+  const sort = useSelector((state) => state.filterSlice.sort);
+
   const [open, setOpen] = React.useState(false);
-  const list = [
-    { name: "popularité", sortProperty: "rating" },
-    { name: "prix", sortProperty: "price" },
-    { name: "alphabétique", sortProperty: "title" },
-  ];
 
-  const onClickListItem = (i) => {
-    onChangeSort(i);
+  const onClickListItem = (obj) => {
+    dispatch(setSort(obj));
     setOpen(false);
   };
 
@@ -19,7 +25,7 @@ export default function Sort({ value, onChangeSort }) {
       <div className={styles.sort}>
         <span className={styles.label}>Trier par :</span>
         <b className={styles.span} onClick={() => setOpen(!open)}>
-          {value.name}
+          {sort.name}
         </b>
       </div>
       <div>
@@ -31,7 +37,7 @@ export default function Sort({ value, onChangeSort }) {
                   key={i}
                   onClick={() => onClickListItem(obj)}
                   className={
-                    value.sortProperty === obj.sortProperty ? styles.active : ""
+                    sort.sortProperty === obj.sortProperty ? styles.active : ""
                   }
                 >
                   {obj.name}
