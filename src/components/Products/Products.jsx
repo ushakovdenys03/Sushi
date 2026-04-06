@@ -6,7 +6,7 @@ export default function Products({ items, isLoading, searchValue }) {
   return (
     <div className={styles.list}>
       {isLoading
-        ? [...new Array(15)].map((_, index) => <Skeleton key={index} />)
+        ? [...new Array(5)].map((_, index) => <Skeleton key={index} />)
         : items.map((obj) => (
             <Sushi
               key={obj.id}
