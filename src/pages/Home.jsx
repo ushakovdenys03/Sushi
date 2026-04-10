@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useRef } from "react";
+import qs from "qs";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-import { setCategoryID, setCurrentPage } from "../redux/slices/filterSlice";
+import {
+  setCategoryID,
+  setCurrentPage,
+  setFilters,
+} from "../redux/slices/filterSlice";
 import Categories from "../components/Categories/Categories";
 import Products from "../components/Products/Products";
 import styles from "./home.module.css";
-import Sort from "../components/Sort/Sort";
+import Sort, { sortList } from "../components/Sort/Sort";
 import Pagination from "../components/Pagination";
 
 export default function Home({ searchValue }) {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isSearch = useRef(false);
+  const isMounted = useRef(false);
+
   const categoryID = useSelector((state) => state.filterSlice.categoryID);
   const sortType = useSelector((state) => state.filterSlice.sort.sortProperty);
   const currentPage = useSelector((state) => state.filterSlice.currentPage);
@@ -26,7 +36,7 @@ export default function Home({ searchValue }) {
     dispatch(setCurrentPage(number));
   };
 
-  React.useEffect(() => {
+  const fetchSushi = () => {
     setIsLoading(true);
 
     const category = categoryID > 0 ? `category=${categoryID}` : "";
@@ -40,7 +50,59 @@ export default function Home({ searchValue }) {
         setItems(response.data);
         setIsLoading(false);
       });
+  };
+
+  // Если был первый рендер, проверяем ебанные параметры и сохраняем в редуксе
+  React.useEffect(() => {
+    if (window.location.search) {
+      const params = qs.parse(window.location.search.substring(1));
+
+      const sort =
+        sortList.find((obj) => obj.sortProperty === params.sortProperty) ||
+        sortList[0];
+
+      dispatch(
+        setFilters({
+          ...params,
+          sort,
+        }),
+      );
+
+      isSearch.current = true;
+    } else {
+      dispatch(
+        setFilters({
+          categoryID: 0,
+          currentPage: 1,
+          sort: sortList[0],
+        }),
+      );
+    }
+  }, [dispatch]);
+
+  // Если был первый рендер, то запрашиваем суши
+  React.useEffect(() => {
+    if (isSearch.current) {
+      isSearch.current = false;
+      return;
+    }
+
+    fetchSushi();
   }, [categoryID, sortType, searchValue, currentPage]);
+
+  // Если изменили параметры если был первый рендер
+  React.useEffect(() => {
+    if (isMounted.current) {
+      const queryString = qs.stringify({
+        sortProperty: sortType,
+        categoryID,
+        currentPage,
+      });
+
+      navigate(`?${queryString}`);
+    }
+    isMounted.current = true;
+  }, [categoryID, sortType, currentPage, navigate]);
 
   return (
     <>

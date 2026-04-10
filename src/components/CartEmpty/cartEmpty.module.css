@@ -1,0 +1,61 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 60vh;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.image {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+
+  margin-bottom: 20px;
+
+  animation: float 2.5s ease-in-out infinite;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.text {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 22px;
+}
+
+.button {
+  padding: 12px 22px;
+  background: #111;
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.button:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+/* ✨ лёгкая анимация "плавания" */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

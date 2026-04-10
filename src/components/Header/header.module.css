@@ -34,14 +34,25 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #ff4d4f;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 20px;
-  font-weight: bold;
-  cursor: pointer;
+  background: rgb(239, 224, 224);
+  color: black;
+  padding: 10px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cartRight {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cartIcon {
+  width: 18px;
+  height: 18px;
 }
 
 .divider {
-  opacity: 0.7;
+  opacity: 0.5;
 }

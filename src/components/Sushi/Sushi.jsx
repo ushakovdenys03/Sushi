@@ -1,11 +1,23 @@
 import React from "react";
 import styles from "./sushi.module.css";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../redux/slices/cartSlice";
 
-export default function Sushi({ imageUrl, title, price, quantitySush }) {
+export default function Sushi({ id, imageUrl, title, price, quantitySush }) {
+  const dispatch = useDispatch();
+
   const [countSushi, setCountSushi] = React.useState(0);
 
   const onClickAdd = () => {
     setCountSushi(countSushi + 1);
+    const item = {
+      id,
+      title,
+      price,
+      imageUrl,
+      quantitySush,
+    };
+    dispatch(addItem(item));
   };
 
   return (
