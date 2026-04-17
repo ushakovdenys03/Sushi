@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import qs from "qs";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -9,6 +8,7 @@ import {
   setCurrentPage,
   setFilters,
 } from "../redux/slices/filterSlice";
+import { fetchSushi } from "../redux/slices/sushiSlice";
 import Categories from "../components/Categories/Categories";
 import Products from "../components/Products/Products";
 import styles from "./home.module.css";
@@ -21,12 +21,10 @@ export default function Home({ searchValue }) {
   const isSearch = useRef(false);
   const isMounted = useRef(false);
 
+  const { items, status } = useSelector((state) => state.sushi);
   const categoryID = useSelector((state) => state.filterSlice.categoryID);
   const sortType = useSelector((state) => state.filterSlice.sort.sortProperty);
   const currentPage = useSelector((state) => state.filterSlice.currentPage);
-
-  const [items, setItems] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
 
   const onClickCategorie = (id) => {
     dispatch(setCategoryID(id));
@@ -36,20 +34,18 @@ export default function Home({ searchValue }) {
     dispatch(setCurrentPage(number));
   };
 
-  const fetchSushi = () => {
-    setIsLoading(true);
-
-    const category = categoryID > 0 ? `category=${categoryID}` : "";
+  const getSushi = async () => {
+    const category = categoryID > 0 ? `&category=${categoryID}` : "";
     const search = searchValue ? `&search=${searchValue}` : "";
 
-    axios
-      .get(
-        `https://69cc09f70b417a19e07bbb23.mockapi.io/items?page=${currentPage}&limit=5&${category}&sortBy=${sortType}&order=asc&${search}`,
-      )
-      .then((response) => {
-        setItems(response.data);
-        setIsLoading(false);
-      });
+    dispatch(
+      fetchSushi({
+        category,
+        sortType,
+        search,
+        currentPage,
+      }),
+    );
   };
 
   // Если был первый рендер, проверяем ебанные параметры и сохраняем в редуксе
@@ -87,7 +83,7 @@ export default function Home({ searchValue }) {
       return;
     }
 
-    fetchSushi();
+    getSushi();
   }, [categoryID, sortType, searchValue, currentPage]);
 
   // Если изменили параметры если был первый рендер
@@ -113,11 +109,7 @@ export default function Home({ searchValue }) {
       </div>
 
       <div className={styles.products}>
-        <Products
-          searchValue={searchValue}
-          items={items}
-          isLoading={isLoading}
-        />
+        <Products searchValue={searchValue} items={items} status={status} />
       </div>
 
       <Pagination currentPage={currentPage} onChangePage={onChangePage} />
