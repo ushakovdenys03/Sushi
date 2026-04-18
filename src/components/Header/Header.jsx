@@ -25,7 +25,9 @@ export default function Header() {
         </div>
       </div>
 
-      <Search />
+      <div className={styles.search}>
+        <Search />
+      </div>
 
       {/* RIGHT */}
       <Link to="/cart" className={styles.cart}>

@@ -30,6 +30,12 @@
   color: #888;
 }
 
+@media (max-width: 800px) {
+  .search {
+    display: none;
+  }
+}
+
 .cart {
   display: flex;
   align-items: center;
