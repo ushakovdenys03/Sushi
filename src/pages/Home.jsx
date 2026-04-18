@@ -34,7 +34,7 @@ export default function Home({ searchValue }) {
     dispatch(setCurrentPage(number));
   };
 
-  const getSushi = async () => {
+  React.useEffect(() => {
     const category = categoryID > 0 ? `&category=${categoryID}` : "";
     const search = searchValue ? `&search=${searchValue}` : "";
 
@@ -46,7 +46,7 @@ export default function Home({ searchValue }) {
         currentPage,
       }),
     );
-  };
+  }, [categoryID, sortType, searchValue, currentPage, dispatch]);
 
   // Если был первый рендер, проверяем ебанные параметры и сохраняем в редуксе
   React.useEffect(() => {
@@ -82,8 +82,6 @@ export default function Home({ searchValue }) {
       isSearch.current = false;
       return;
     }
-
-    getSushi();
   }, [categoryID, sortType, searchValue, currentPage]);
 
   // Если изменили параметры если был первый рендер
@@ -109,7 +107,7 @@ export default function Home({ searchValue }) {
       </div>
 
       <div className={styles.products}>
-        <Products searchValue={searchValue} items={items} status={status} />
+        <Products items={items} status={status} />
       </div>
 
       <Pagination currentPage={currentPage} onChangePage={onChangePage} />

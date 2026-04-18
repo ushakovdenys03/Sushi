@@ -19,11 +19,19 @@ export default function Search() {
     updateSearchValue(event.target.value);
   };
 
-  const updateSearchValue = React.useCallback(
-    debounce((str) => {
-      setSearchValue(str);
-    }, 1000),
+  const updateSearchValue = React.useMemo(
+    () =>
+      debounce((str) => {
+        setSearchValue(str);
+      }, 1000),
+    [setSearchValue],
   );
+
+  React.useEffect(() => {
+    return () => {
+      updateSearchValue.cancel();
+    };
+  }, [updateSearchValue]);
 
   return (
     <div className={styles.wrapper}>

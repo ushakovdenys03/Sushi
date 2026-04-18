@@ -13,9 +13,7 @@ export default function ProductList({
   const dispatch = useDispatch();
 
   const onClickRemoveItem = () => {
-    if (window.confirm("Are you sure you want to remove")) {
-      dispatch(removeItem(id));
-    }
+    dispatch(removeItem(id));
   };
 
   return (

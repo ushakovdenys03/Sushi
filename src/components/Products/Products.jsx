@@ -1,8 +1,13 @@
 import Sushi from "../Sushi/Sushi";
 import Skeleton from "../SushiBlock/Skeleton.jsx";
+import ErrorBlock from "../ErrorBlock";
 import styles from "./products.module.css";
 
 export default function Products({ items, status }) {
+  if (status === "error") {
+    return <ErrorBlock />;
+  }
+
   return (
     <div className={styles.list}>
       {status === "loading"
